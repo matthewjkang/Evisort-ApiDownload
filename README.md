@@ -6,4 +6,4 @@ Input : Excel file exported from Evisort search
 Output : Folder containing all PDFs from that search  
 
 ## Todo
-* It's pretty much done. But I forgot that the Evisort Repositories can contain docx too. Need to fix that. 
+* It works. But I forgot that the Evisort Repositories can contain docx too. Need to fix that. 
