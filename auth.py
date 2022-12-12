@@ -3,16 +3,17 @@
 
 import requests
 import os
-import secret #Hid this file from public viewers in my gitignore. Make your own, and then create an api_key variable (named just like that).
 
 class AuthHandler:
+    def __init__(self):
+        self.apikey = input('Enter your API Key : ')
 
     def generateToken(self): 
         # Generates api token from api key
         # INPUT  : self
         # OUTPUT : Api Token (string)
         url = 'https://api.evisort.com/v1/auth/token'
-        head = {'EVISORT-API-KEY': secret.api_key}
+        head = {'EVISORT-API-KEY': self.apikey}
         res = requests.post(url,headers=head)
         api_token = res.json()
         return api_token['token']
@@ -37,8 +38,8 @@ class AuthHandler:
                 # file gets closed implicitly 
             req = requests.get("https://api.evisort.com/v1/documents",headers={"Authorization": "Bearer {}".format(mytoken)}) # checks the api response for the token in text file
             if req.status_code == 401: # Expired Token OR Missing Token:
-                print('token is bad. writing you a new one')
                 print(req.text)
+                print('token is bad. writing you a new one')
                 with open('token.txt','w') as file:
                     file.write(self.generateToken()) #token has expired, so I went ahead and wrote you a new one
             else:
@@ -58,4 +59,5 @@ def callAPI(token,docID):
     }
     req = requests.get(url,headers=headers)
     return req.content
+
 
