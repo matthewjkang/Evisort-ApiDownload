@@ -43,7 +43,6 @@ class AuthHandler:
                     file.write(self.generateToken()) #token has expired, so I went ahead and wrote you a new one
             else:
                 print('token is good')
-                print(req.text)
         # Why did i write this function? Simple. I did not want a new API token to be created if the last one was still valid.
 
 def get_token():

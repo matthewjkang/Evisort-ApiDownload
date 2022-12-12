@@ -11,8 +11,6 @@ if __name__ == '__main__':
         os.makedirs('PDFs')
 
     sep = os.sep
-    for i,j in docIdList: # i = documentID , j = document name
-        with open('PDFs{}{}{}.pdf'.format(os.sep,j,i), 'wb') as f:
-            f.write(callAPI(mytoken,i))
-
-#TODO : HANDLE DOCX. I DID NOT ANTICIPATE DOCX
+    for x,y,z in docIdList: # x = documentID , y = document name , z = file extension (.pdf or .docx)
+        with open('PDFs{}{}{}{}'.format(os.sep,y,x,z), 'wb') as f:
+            f.write(callAPI(mytoken,x))

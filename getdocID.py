@@ -17,5 +17,5 @@ def getDocID():
     except NameError:
         print('You might have put more than one excel sheet in the folder ')
     
-    ziplist = list(zip(excel['DocID'],excel['File Name']))
+    ziplist = list(zip(excel['DocID'],excel['File Name'],excel['File Type']))
     return ziplist
