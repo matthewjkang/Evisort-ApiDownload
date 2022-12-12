@@ -4,7 +4,7 @@ from getdocID import *
 if __name__ == '__main__':
     AuthHandler().check_token() # in-place : creates text file
     mytoken = get_token() #string
-    docIdList = getDocID() #list of tuples [(x,y),(x2,y2),(x3,y3),...)
+    docIdList = getDocID() #list of tuples [(x,y,z),(x2,y2,z2),(x3,y3,z3),...)
 
     if not os.path.exists('PDFs'):
         os.makedirs('PDFs')
