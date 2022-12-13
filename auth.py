@@ -2,8 +2,8 @@ import requests
 import os
 
 class AuthHandler:
-    def __init__(self):
-        self.apikey = input('Enter your API Key : ')
+    def __init__(self,apikey):
+        self.apikey = apikey
 
     def generateToken(self): 
         # Generates api token from api key
@@ -56,5 +56,3 @@ def callAPI(token,docID):
     }
     req = requests.get(url,headers=headers)
     return req.content
-
-
